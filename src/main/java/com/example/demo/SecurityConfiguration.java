@@ -21,7 +21,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
-                    .authorizeRequests().anyRequest().authenticated();
+                    .authorizeRequests().antMatchers("/assets/**", "/bootstrap3/**").permitAll();
+
+
             http
                     .formLogin().failureUrl("/login?error")
                     .defaultSuccessUrl("/")
