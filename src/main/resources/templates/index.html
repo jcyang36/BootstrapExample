@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"  xmlns:th="www.thymeleaf.org">
 <head>
 	<meta charset="utf-8" />
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"/>
@@ -20,16 +20,17 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'/>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
 </head>
 
 <body>
 <div class="masthead">
     <nav>
         <ul class="nav nav-justified">
-            <li ><a href="/">SPRING BANK</a></li>
-            <li ><a href="/add">Transaction</a></li>
-            <li class="active"><a href="/balance">My balance</a></li>
-            <li><a href="/logout">Log out</a></li>
+            <li ><a href="/"><h3>SPRING BANK</h3></a></li>
+            <li ><a href="/add"><h3>Transaction</h3></a></li>
+            <li class="active"><a href="/balance"><h3>My balance</h3></a></li>
+            <li><a href="/logout"><h3>Log out</h3></a></li>
         </ul>
     </nav>
 </div>
@@ -68,15 +69,14 @@
             <tr>
             <td class="text-center">  <p th:utext = "${transaction.actionType} " height="80">Transaction  </p>
 
-
             </td>
-                <td class = "text-center"><p th:utext = "${transaction.amount } " height="80">Transaction  </p>
+                <td class="text-center"><p th:utext = "${transaction.amount } " height="80">Transaction  </p>
                 </td>
 
-                <td class = "text-center"><p th:utext = "${transaction.acctNumber} " height="80">Transaction  </p>
+                <td  class="text-center"><p th:utext = "${transaction.acctNumber} " height="80">Transaction  </p>
                 </td>
 
-                <td class = "text-center"><p th:utext = "${transaction.reason} " height="80">Transaction  </p>
+                <td class="text-center"><p th:utext = "${transaction.reason} " height="80">Transaction  </p>
                 </td>
 
          </tr>

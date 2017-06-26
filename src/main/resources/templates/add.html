@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"/>
@@ -20,7 +20,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'/>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+
     <style>
         form {
             margin: 0 auto;
@@ -30,32 +30,36 @@
 </head>
 <body>
 <div class="masthead">
-    <nav>
-        <ul class="nav nav-justified">
-            <li ><a href="/">SPRING BANK</a></li>
-            <li ><a href="/add">Transaction</a></li>
-            <li class="active"><a href="/balance">My balance</a></li>
-            <li><a href="/logout">Log out</a></li>
-        </ul>
-    </nav>
+    <ul class="nav nav-justified">
+        <li ><a href="/"><h3>SPRING BANK</h3></a></li>
+        <li ><a href="/add"><h3>Transaction</h3></a></li>
+        <li class="active"><a href="/balance"><h3>My balance</h3></a></li>
+        <li><a href="/logout"><h3>Log out</h3></a></li>
+    </ul>
 </div>
-<div class = "container">
-    <header><h2>Make a Transaction</h2> </header>
-</div>
+
+
+<div class = "section">
 <div class="container">
 
 
 <form th:action = "@{/addsubmit}" id = "atmform" th:object = "${transaction}" method = "post">
 
-    <div class="form-group">
+    <!--<div class="form-group">
         <div class="row">
             <div class="col-md-6">
         <label for="exampleInputActionType1">Action Type</label>
         <input type="text" class="form-control" id="exampleInputActionType1" placeholder="actionType" th:field="*{actionType}"/>
             </div>
         </div>
+    </div>-->
+    <div class = "form-group">
+        <label for="exampleInputActionType1">Make</label>
+        <select name="actionlist" form="atmform" th:field="*{actionType}">
+            <option th:value = "deposit" th:text="${'a deposit'}">a deposit</option>
+            <option th:value = "withdrawal" th:text ="${'a withdrawal'}">a withdrawal</option>
+        </select>
     </div>
-
     <div class="form-group">
         <div class="row">
             <div class="col-md-6">
@@ -83,10 +87,8 @@
     </div>
     <input type="submit" value = "Submit"/>
 </form>
-<!--<select name="actionlist" form="atmform" th:field="*{actionType}">
-    <option th:value = "deposit" th:text="a deposit">a deposit</option>
-    <option th:value = "withdrawal" th:text ="a withdrawal">a withdrawal</option>
-</select>-->
+
+</div>
 </div>
 <!--  jQuery and Bootstrap core files    -->
 <script src="assets/js/jquery.js" type="text/javascript"></script>

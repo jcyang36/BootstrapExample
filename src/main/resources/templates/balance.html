@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"/>
@@ -20,19 +20,25 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'/>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+    <style>
+        table {
+            margin: 0 auto;
+            width:75%;
+
+        }
+    </style>
 </head>
 <body>
 
 
 <div class="masthead">
-    <nav>
-        <ul class="nav nav-justified">
-            <li ><a href="/">SPRING BANK</a></li>
-            <li ><a href="/add">Transaction</a></li>
-            <li class="active"><a href="/balance">My balance</a></li>
-            <li><a href="/logout">Log out</a></li>
-        </ul>
-    </nav>
+    <ul class="nav nav-justified">
+        <li ><a href="/"><h3>SPRING BANK</h3></a></li>
+        <li ><a href="/add"><h3>Transaction</h3></a></li>
+        <li class="active"><a href="/balance"><h3>My balance</h3></a></li>
+        <li><a href="/logout"><h3>Log out</h3></a></li>
+    </ul>
 </div>
 <!--<nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -62,14 +68,15 @@
 <div class = "container">
    <div class = "table-responsive">
     <table class="table">
-        <th class="text-center" height="80"><h2>Balance</h2> </th>
-
+        <tr>
+        <th class="text-center" height="80">Balance </th>
+        </tr>
 
 
 
         <div th:each = "transaction: ${transactionList}">
             <tr>
-                <td class="text-center">
+                <td  class="text-center">
 
                     <div th:with = "result=${transaction.balance}">
                         <span th:text = "${result}">Result</span>
